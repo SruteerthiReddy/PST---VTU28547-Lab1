@@ -1,0 +1,21 @@
+import java.util.function.Function;
+public class HigherOrderFunctionExample{
+    static void ProcessSalary(double Salary,Function<Double,Double>operation){
+        double result=operation.apply(Salary);
+        System.out.println("Update Salary:"+result);
+    }
+    public static void main(String[]args){
+        double Salary=50000;
+        //Increase salary by 10%
+        ProcessSalary(Salary,s->s+(s*0.10));
+        //Add bonus 0f 5000
+        ProcessSalary(Salary,s->s+5000);
+        //deduct 10%tax
+        ProcessSalary(Salary,s->s-(s*0.10));
+    }
+}
+
+Output:
+Update Salary:55000.0
+Update Salary:55000.0
+Update Salary:45000.0
